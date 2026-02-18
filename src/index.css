@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-midnight: #070b16;
+  --panel: rgba(15, 23, 42, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 15% 10%, #111b34 0%, #070b16 45%, #04050d 100%);
+  color: #f4f5f7;
+}
+
+.bg-midnight {
+  background: linear-gradient(160deg, #04050d 0%, #0b1224 50%, #060711 100%);
+}
+
+.font-display {
+  font-family: "Syne", "Space Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.metric-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.avatar-panel {
+  position: relative;
+  margin-inline: auto;
+  width: min(22rem, 100%);
+  perspective: 1000px;
+}
+
+.avatar-shell {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 1.75rem;
+  background: radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.25), rgba(9, 13, 23, 0.8) 55%);
+  box-shadow: 0 28px 90px -45px rgba(34, 211, 238, 0.75);
+  aspect-ratio: 4 / 5;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+  filter: contrast(1.08) saturate(1.04);
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #d7e6f8;
+  background: rgba(5, 8, 20, 0.75);
+}
+
+.avatar-fallback p {
+  margin: 0;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -0.8rem;
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.avatar-ring-one {
+  border: 1px dashed rgba(34, 211, 238, 0.5);
+}
+
+.avatar-ring-two {
+  inset: -1.4rem;
+  border: 1px dotted rgba(217, 70, 239, 0.45);
+}
+
+.avatar-caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.project-card {
+  box-shadow: 0 20px 70px -35px rgba(0, 0, 0, 0.85);
+  transition: box-shadow 220ms ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 28px 90px -35px rgba(56, 189, 248, 0.45);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+  gap: 0.8rem;
+  padding-inline: 1rem;
+}
+
+.marquee-pill {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f8fafc;
+  white-space: nowrap;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 18s;
+  }
+}
