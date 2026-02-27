@@ -12,7 +12,8 @@ import {
   Bot,
   Database,
   Cpu,
-  UserRound
+  UserRound,
+  ArrowUpRight
 } from "lucide-react";
 
 const assetUrl = (fileName) => `${import.meta.env.BASE_URL}${fileName}`;
@@ -173,22 +174,56 @@ function ProfessionalAvatar() {
   );
 }
 
+function NeuralPulse() {
+  const nodes = [
+    { left: "12%", top: "52%", delay: 0.1 },
+    { left: "33%", top: "26%", delay: 0.3 },
+    { left: "54%", top: "60%", delay: 0.5 },
+    { left: "75%", top: "35%", delay: 0.7 },
+    { left: "89%", top: "64%", delay: 0.9 }
+  ];
+
+  return (
+    <div className="neural-pulse" aria-hidden>
+      <motion.div
+        className="neural-scanline"
+        initial={{ x: "-28%" }}
+        animate={{ x: ["-28%", "120%"] }}
+        transition={{ repeat: Infinity, duration: 3.2, ease: "linear" }}
+      />
+      {nodes.map((node) => (
+        <motion.span
+          key={`${node.left}-${node.top}`}
+          className="neural-node"
+          style={{ left: node.left, top: node.top }}
+          animate={{ scale: [1, 1.35, 1], opacity: [0.4, 1, 0.4] }}
+          transition={{ repeat: Infinity, duration: 2.4, delay: node.delay, ease: "easeInOut" }}
+        />
+      ))}
+      <svg viewBox="0 0 300 120" className="neural-lines">
+        <path d="M10 72 C52 20, 105 25, 140 60 S224 106, 290 44" />
+      </svg>
+      <p className="neural-label">Neural Pipeline Active</p>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-midnight text-zinc-100">
-      <div className="pointer-events-none absolute inset-0 opacity-80">
+      <div className="pointer-events-none absolute inset-0 opacity-85">
         <FloatingOrb
-          className="absolute left-[-10rem] top-[-6rem] h-80 w-80 rounded-full bg-fuchsia-400/30 blur-3xl"
+          className="absolute left-[-10rem] top-[-6rem] h-80 w-80 rounded-full bg-rose-400/20 blur-3xl"
           delay={0}
           duration={12}
         />
         <FloatingOrb
-          className="absolute right-[-8rem] top-[10rem] h-72 w-72 rounded-full bg-cyan-400/30 blur-3xl"
+          className="absolute right-[-8rem] top-[10rem] h-72 w-72 rounded-full bg-sky-400/25 blur-3xl"
           delay={1.5}
           duration={11}
         />
         <FloatingOrb
-          className="absolute bottom-[-8rem] left-[30%] h-96 w-96 rounded-full bg-amber-300/20 blur-3xl"
+          className="absolute bottom-[-8rem] left-[30%] h-96 w-96 rounded-full bg-cyan-300/18 blur-3xl"
           delay={0.8}
           duration={14}
         />
@@ -199,7 +234,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
-          className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/5 p-8 shadow-[0_25px_100px_-40px_rgba(34,211,238,0.5)] backdrop-blur-xl md:p-12"
+          className="hero-panel relative overflow-hidden rounded-[2rem] border p-8 shadow-[0_25px_100px_-40px_rgba(56,189,248,0.45)] backdrop-blur-xl md:p-12"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(34,211,238,0.20),transparent_55%)]" />
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.25fr_0.75fr]">
@@ -217,13 +252,18 @@ export default function Portfolio() {
                 not a static resume.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild className="border border-cyan-200/40 bg-cyan-200/20 text-cyan-50 hover:bg-cyan-200/30">
+              <NeuralPulse />
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button asChild className="resume-cta border-0">
                   <a href="https://drive.google.com/file/d/1N6YkyeKhaM6o3g_w_GyiKcUBWy9KuKWP/view?usp=drive_link" target="_blank" rel="noreferrer">
-                    View Resume
+                    <span className="resume-cta-shimmer" />
+                    <span className="relative z-10 inline-flex items-center gap-2">
+                      View Resume <ArrowUpRight className="h-4 w-4" />
+                    </span>
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="border-fuchsia-300/30 bg-fuchsia-300/10 text-fuchsia-100 hover:bg-fuchsia-300/20">
+                <Button variant="outline" asChild className="border-fuchsia-300/30 bg-fuchsia-300/10 text-fuchsia-100 hover:bg-fuchsia-300/20 hover:text-fuchsia-50">
                   <a href="#projects">Explore Work</a>
                 </Button>
               </div>
