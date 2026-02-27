@@ -364,7 +364,7 @@ export default function Portfolio() {
                   <a href="#projects">View Projects</a>
                 </Button>
                 <Button asChild className="resume-cta border-0">
-                  <a href="https://drive.google.com/file/d/1N6YkyeKhaM6o3g_w_GyiKcUBWy9KuKWP/view?usp=drive_link" target="_blank" rel="noreferrer">
+                  <a href="https://drive.google.com/file/d/1sBpGJGa-NcI7WJ283ir6-8oiN2eHCHaI/view?usp=drive_link" target="_blank" rel="noreferrer">
                     <span className="resume-cta-shimmer" />
                     <span className="relative z-10 inline-flex items-center gap-2">Download Resume <FileDown className="h-4 w-4" /></span>
                   </a>
@@ -466,7 +466,7 @@ export default function Portfolio() {
             <a href="https://github.com/priyanshuiscoding" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-300 hover:text-cyan-200">
               <Github className="h-4 w-4" /> GitHub
             </a>
-            <a href="https://drive.google.com/file/d/1N6YkyeKhaM6o3g_w_GyiKcUBWy9KuKWP/view?usp=drive_link" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-300 hover:text-cyan-200">
+            <a href="https://drive.google.com/file/d/1sBpGJGa-NcI7WJ283ir6-8oiN2eHCHaI/view?usp=drive_link" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-300 hover:text-cyan-200">
               Resume <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
