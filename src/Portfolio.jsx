@@ -15,13 +15,15 @@ import {
   UserRound
 } from "lucide-react";
 
+const assetUrl = (fileName) => `${import.meta.env.BASE_URL}${fileName}`;
+
 const projects = [
   {
     title: "FitBuddy",
     subtitle: "AI Wardrobe Assistant",
     description:
       "Flask + SDXL assistant that builds outfit recommendations with a rule engine and affiliate intelligence.",
-    image: "/fitbuddy-ss.png",
+    image: assetUrl("fitbuddy-ss.png"),
     href: "https://fitbuddynew.onrender.com/",
     accent: "from-amber-300 via-orange-400 to-rose-500"
   },
@@ -30,7 +32,7 @@ const projects = [
     subtitle: "Private Knowledge Copilot",
     description:
       "Production-style retrieval pipeline with Mistral, FAISS, PostgreSQL, and session memory for grounded answers.",
-    image: "/llm-ss.png",
+    image: assetUrl("llm-ss.png"),
     href: "https://t94eduetpy2cpxxcf9xhvd.streamlit.app/",
     accent: "from-cyan-300 via-sky-400 to-indigo-500"
   }
@@ -39,19 +41,19 @@ const projects = [
 const certifications = [
   {
     name: "Big Data Computing - IIT Kanpur",
-    link: "/Big%20Data%20Computing.pdf"
+    link: assetUrl("Big%20Data%20Computing.pdf")
   },
   {
     name: "Cyber Security - IIT Madras",
-    link: "/Cyber%20Security%20and%20Privacy.pdf"
+    link: assetUrl("Cyber%20Security%20and%20Privacy.pdf")
   },
   {
     name: "Compiler Design - IIT Kharagpur",
-    link: "/Compiler%20Design%20nptel.pdf"
+    link: assetUrl("Compiler%20Design%20nptel.pdf")
   },
   {
     name: "Web Development Training - Certificate",
-    link: "/Web%20Development%20Training%20-%20Certificate%20of%20Completion%20(1).pdf"
+    link: assetUrl("Web%20Development%20Training%20-%20Certificate%20of%20Completion%20(1).pdf")
   }
 ];
 
@@ -154,7 +156,7 @@ function ProfessionalAvatar() {
       <div className="avatar-shell">
         {!imgError ? (
           <img
-            src="/avatar_3d.png"
+            src={assetUrl("avatar_3d.png")}
             alt="Priyanshu avatar"
             className="avatar-image"
             onError={() => setImgError(true)}
