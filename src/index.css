@@ -122,6 +122,7 @@ body {
   box-shadow: 0 20px 70px -35px rgba(0, 0, 0, 0.85);
   transition: box-shadow 220ms ease, border-color 220ms ease;
   border-color: rgba(116, 144, 255, 0.2);
+  min-height: 640px;
 }
 
 .project-card:hover {
@@ -132,6 +133,95 @@ body {
 .project-shell {
   position: relative;
   isolation: isolate;
+}
+
+.project-media {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.project-details {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 0.75rem;
+  background: rgba(15, 23, 42, 0.42);
+  padding: 0.65rem 0.8rem;
+}
+
+.project-details summary {
+  cursor: pointer;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(186, 230, 253, 0.9);
+}
+
+.project-actions {
+  margin-top: auto;
+}
+
+.project-carousel {
+  overflow: hidden;
+}
+
+.project-track {
+  display: flex;
+  width: 100%;
+}
+
+.project-slide {
+  min-width: 100%;
+}
+
+.project-controls {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.55);
+  color: #dbeafe;
+}
+
+.carousel-btn:hover {
+  border-color: rgba(125, 211, 252, 0.85);
+  color: #e0f2fe;
+}
+
+.carousel-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(148, 163, 184, 0.55);
+}
+
+.dot-active {
+  background: #67e8f9;
 }
 
 .project-spotlight {
@@ -187,35 +277,6 @@ body {
   text-transform: uppercase;
   color: #f8fafc;
   white-space: nowrap;
-}
-
-.cert-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border: 1px solid rgba(116, 144, 255, 0.23);
-  border-radius: 1rem;
-  background: linear-gradient(145deg, rgba(16, 24, 46, 0.75), rgba(5, 8, 18, 0.75));
-  padding: 1rem;
-}
-
-.cert-section {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 82% 16%, rgba(167, 139, 250, 0.15), transparent 44%),
-    linear-gradient(145deg, rgba(11, 20, 39, 0.82), rgba(6, 11, 22, 0.82));
-}
-
-.cert-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(56, 189, 248, 0.08) 45%, transparent 85%);
-  transform: translateX(-100%);
-  animation: sectionSweep 6.5s linear infinite;
-  pointer-events: none;
 }
 
 .resume-cta {
@@ -300,6 +361,47 @@ body {
   color: rgba(186, 230, 253, 0.9);
 }
 
+.glass-section {
+  border: 1px solid rgba(116, 144, 255, 0.22);
+  border-radius: 1rem;
+  padding: 1.15rem;
+  background: linear-gradient(145deg, rgba(16, 24, 46, 0.74), rgba(6, 9, 19, 0.72));
+  backdrop-filter: blur(10px);
+}
+
+.skill-block {
+  border: 1px solid rgba(116, 144, 255, 0.23);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(16, 24, 46, 0.75), rgba(5, 8, 18, 0.75));
+  padding: 1rem;
+}
+
+.mini-showcase {
+  border: 1px solid rgba(186, 230, 253, 0.25);
+  border-radius: 0.8rem;
+  padding: 0.55rem;
+  background: rgba(3, 9, 22, 0.55);
+  text-decoration: none;
+}
+
+.mini-showcase p {
+  margin: 0 0 0.4rem;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(186, 230, 253, 0.85);
+}
+
+.mini-showcase img {
+  width: 100%;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.arch-flow {
+  line-height: 1.7;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -331,18 +433,16 @@ body {
   }
 }
 
-@keyframes sectionSweep {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
-}
-
 @media (max-width: 768px) {
-  .marquee-track {
-    animation-duration: 18s;
+  .neural-pulse {
+    height: 4.2rem;
+  }
+
+  .project-card {
+    min-height: 0;
+  }
+
+  .project-media {
+    height: 15rem;
   }
 }
