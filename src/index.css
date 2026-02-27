@@ -129,6 +129,46 @@ body {
   border-color: rgba(56, 189, 248, 0.4);
 }
 
+.project-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-spotlight {
+  position: absolute;
+  inset: -25% auto auto -18%;
+  width: 70%;
+  height: 80%;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(103, 232, 249, 0.25), transparent 70%);
+  filter: blur(18px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-chip {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  z-index: 5;
+  border: 1px solid rgba(186, 230, 253, 0.45);
+  border-radius: 999px;
+  background: rgba(8, 22, 44, 0.68);
+  padding: 0.26rem 0.62rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #d9f4ff;
+}
+
+.launch-cta {
+  background: linear-gradient(110deg, rgba(14, 116, 144, 0.45), rgba(30, 64, 175, 0.45));
+}
+
+.launch-cta:hover {
+  background: linear-gradient(110deg, rgba(14, 116, 144, 0.62), rgba(79, 70, 229, 0.54));
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
@@ -158,6 +198,24 @@ body {
   border-radius: 1rem;
   background: linear-gradient(145deg, rgba(16, 24, 46, 0.75), rgba(5, 8, 18, 0.75));
   padding: 1rem;
+}
+
+.cert-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(167, 139, 250, 0.15), transparent 44%),
+    linear-gradient(145deg, rgba(11, 20, 39, 0.82), rgba(6, 11, 22, 0.82));
+}
+
+.cert-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(56, 189, 248, 0.08) 45%, transparent 85%);
+  transform: translateX(-100%);
+  animation: sectionSweep 6.5s linear infinite;
+  pointer-events: none;
 }
 
 .resume-cta {
@@ -270,6 +328,16 @@ body {
 
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sectionSweep {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }
 

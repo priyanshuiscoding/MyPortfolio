@@ -100,16 +100,20 @@ function GlassProjectCard({ project, index }) {
       style={{ transformStyle: "preserve-3d" }}
       className="group relative"
     >
-      <Card className="project-card overflow-hidden rounded-[1.5rem] border-white/15 bg-white/5 backdrop-blur-xl">
+      <Card className="project-card project-shell overflow-hidden rounded-[1.5rem] border-white/15 bg-white/5 backdrop-blur-xl">
         <CardContent className="p-0">
           <div className="relative">
+            <div className="project-spotlight" />
             <div className={`absolute inset-0 bg-gradient-to-tr ${project.accent} opacity-30`} />
-            <img
+            <motion.img
               src={project.image}
               alt={`${project.title} screenshot`}
               className="h-56 w-full object-cover md:h-64"
+              whileHover={{ scale: 1.07 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <span className="project-chip">Live Demo</span>
           </div>
           <div className="space-y-3 p-6">
             <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/90">
@@ -117,7 +121,7 @@ function GlassProjectCard({ project, index }) {
             </p>
             <h3 className="font-display text-2xl text-white">{project.title}</h3>
             <p className="text-sm leading-relaxed text-zinc-300">{project.description}</p>
-            <Button asChild className="mt-3 border border-cyan-300/30 bg-cyan-300/15 text-cyan-100 hover:bg-cyan-300/30">
+            <Button asChild className="launch-cta mt-3 border border-cyan-300/30 text-cyan-100">
               <a href={project.href} target="_blank" rel="noreferrer">
                 Launch Project <ExternalLink className="ml-2 h-4 w-4" />
               </a>
@@ -310,6 +314,9 @@ export default function Portfolio() {
         >
           Featured Builds
         </motion.h2>
+        <p className="mb-10 max-w-2xl text-zinc-300">
+          Selected products built with an AI-first architecture, optimized UX, and production deployment pipelines.
+        </p>
 
         <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
@@ -323,7 +330,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-[2rem] border border-white/15 bg-black/35 p-8 backdrop-blur-xl md:p-10"
+          className="cert-section rounded-[2rem] border border-white/15 p-8 backdrop-blur-xl md:p-10"
         >
           <h2 className="font-display text-4xl text-white md:text-5xl">Certifications</h2>
           <p className="mt-2 text-zinc-300">Validated learning from IIT and hands-on engineering tracks.</p>
